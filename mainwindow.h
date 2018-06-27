@@ -21,12 +21,12 @@
 #include <QTimer>
 
 
-#include "base.h"
-#include "conf.h"
-#include "http.h"
-#include "io.h"
-#include "resumable_io.h"
-#include "rs.h"
+#include "include/qiniu/base.h"
+#include "include/qiniu/conf.h"
+#include "include/qiniu/http.h"
+#include "include/qiniu/io.h"
+#include "include/qiniu/resumable_io.h"
+#include "include/qiniu/rs.h"
 
 #include "accountdialog.h"
 #include "globalsettingdialog.h"

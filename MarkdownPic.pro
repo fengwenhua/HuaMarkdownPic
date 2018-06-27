@@ -47,37 +47,28 @@ FORMS += \
 
 
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lqiniu
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lqiniu
-else:unix: LIBS += -L$$PWD/./ -lqiniu
 
-INCLUDEPATH += $$PWD/.
-DEPENDPATH += $$PWD/.
+unix|win32: LIBS += -L$$PWD/lib/ -lcurllib
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lcurllib
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lcurllib
-else:unix: LIBS += -L$$PWD/./ -lcurllib
+INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include
 
-INCLUDEPATH += $$PWD/.
-DEPENDPATH += $$PWD/.
+unix|win32: LIBS += -L$$PWD/lib/ -llibeay32
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lssleay32
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lssleay32
-else:unix: LIBS += -L$$PWD/./ -lssleay32
+INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include
 
-INCLUDEPATH += $$PWD/.
-DEPENDPATH += $$PWD/.
+unix|win32: LIBS += -L$$PWD/lib/ -lopenldap
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -llibeay32
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -llibeay32
-else:unix: LIBS += -L$$PWD/./ -llibeay32
+INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include
 
-INCLUDEPATH += $$PWD/.
-DEPENDPATH += $$PWD/.
+unix|win32: LIBS += -L$$PWD/lib/ -lqiniu
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lopenldap
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lopenldap
-else:unix: LIBS += -L$$PWD/./ -lopenldap
+INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include
 
-INCLUDEPATH += $$PWD/.
-DEPENDPATH += $$PWD/.
+unix|win32: LIBS += -L$$PWD/lib/ -lssleay32
+
+INCLUDEPATH += $$PWD/include
+DEPENDPATH += $$PWD/include
