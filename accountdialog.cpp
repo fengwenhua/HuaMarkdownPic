@@ -123,20 +123,22 @@ void AccountDialog::on_pushButton_clicked()
         domain = ui->domainLineEdit->text();
     }
 
-    if(!domain.contains("http://",Qt::CaseSensitive))
-        domain="http://"+domain;
+    QString httpString="http://";
+    domain=domain.trimmed();// 由于domain要进行于http://的拼接,因此要先过滤前后空格,否则会有bug
+    if(!domain.contains(httpString,Qt::CaseSensitive))
+        domain=httpString+domain;
 
 
     qDebug()<<"bucket: "<<bucket;
     qDebug()<<"accessKey: "<<accessKey;
     qDebug()<<"secretKey: "<< secretKey;
-    qDebug()<<"domain: "<< domain;
+    qDebug()<<"domain(accountdialog): "<< domain;
     // 后期记得加上输入为空的判断
     ofstream writeAccount("account.ini");
     writeAccount<<bucket.trimmed().toStdString()<<endl;
     writeAccount<<accessKey.trimmed().toStdString()<<endl;
     writeAccount<<secretKey.trimmed().toStdString()<<endl;
-    writeAccount<<domain.trimmed().toStdString()<<endl;
+    writeAccount<<domain.toStdString()<<endl;
 
     writeAccount.close();
 

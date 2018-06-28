@@ -230,7 +230,7 @@ void MainWindow::saveAndUpload(QString userRename,QString now_time,QString dir,Q
 //                     qDebug()<<"bucket:"<<bucket;
 //                     qDebug()<<"accesskey:"<<mac.accessKey;
 //                     qDebug()<<"secretKey:"<<mac.secretKey;
-//                     qDebug()<<"domain:"<<domain;
+                    qDebug()<<"domain(shangchuan):"<<domain;
 
 
             Qiniu_Io_PutRet putRet;
@@ -425,7 +425,7 @@ void MainWindow::dropEvent(QDropEvent *event)
 //             qDebug()<<"bucket:"<<bucket;
 //             qDebug()<<"accesskey:"<<mac.accessKey;
 //             qDebug()<<"secretKey:"<<mac.secretKey;
-//             qDebug()<<"domain:"<<domain;
+             qDebug()<<"domain(tuodong):"<<domain;
 
             Qiniu_Io_PutRet putRet;
             Qiniu_Client client;
@@ -501,5 +501,5 @@ void MainWindow::on_globalSettingAction_triggered()
 
 void MainWindow::on_aboutAction_triggered()
 {
-    QMessageBox::about(this,"关于","当前版本:0.1(内部测试版)\n版权归属:归冯文华所有(个人学习的话随便用,不可用于商业用途)\n更新地址:暂时没有\n这是一个可以截图上传和拖动图片上传到七牛云的小工具");
+    QMessageBox::about(this,"关于","当前版本:0.1(内部测试版)\n版权归属:归冯文华所有(个人学习的话随便用,不可用于商业用途)\n更新地址:https://github.com/fengwenhua/HuaMarkdownPic/releases\n这是一个可以截图上传和拖动图片上传到七牛云的小工具");
 }
