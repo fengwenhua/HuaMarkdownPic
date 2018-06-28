@@ -45,6 +45,21 @@ FORMS += \
 
 
 
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./release/ -lqiniu
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./debug/ -lqiniu
+else:unix: LIBS += -L$$PWD/./ -lqiniu
+
+INCLUDEPATH += $$PWD/.
+DEPENDPATH += $$PWD/.
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/./release/libqiniu.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/./debug/libqiniu.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/./release/qiniu.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/./debug/qiniu.lib
+else:unix: PRE_TARGETDEPS += $$PWD/./libqiniu.a
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./release/ -lqiniu
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./debug/ -lqiniu
 else:unix: LIBS += -L$$PWD/./ -lqiniu
